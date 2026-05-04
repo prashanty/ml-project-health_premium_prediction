@@ -1,15 +1,21 @@
 import pandas as pd
 import os
 from joblib import load
+import joblib
 from sklearn.preprocessing import MinMaxScaler
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-model_rest = load(os.path.join(BASE_DIR, "artifacts", "model_rest.joblib"))
-model_young = load(os.path.join(BASE_DIR, "artifacts", "model_young.joblib"))
+# model_rest = load(os.path.join(BASE_DIR, "artifacts", "model_rest.joblib"))
+# model_young = load(os.path.join(BASE_DIR, "artifacts", "model_young.joblib"))
+#
+# scaler_rest = load(os.path.join(BASE_DIR, "artifacts", "scaler_rest.joblib"))
+# scaler_young = load(os.path.join(BASE_DIR, "artifacts", "scaler_young.joblib"))
 
-scaler_rest = load(os.path.join(BASE_DIR, "artifacts", "scaler_rest.joblib"))
-scaler_young = load(os.path.join(BASE_DIR, "artifacts", "scaler_young.joblib"))
+model_young = joblib.load("artifacts/model_young.joblib")
+model_rest = joblib.load("artifacts/model_rest.joblib")
+scaler_young = joblib.load("artifacts/scaler_young.joblib")
+scaler_rest = joblib.load("artifacts/scaler_rest.joblib")
 
 print("All features: ", model_rest.feature_names_in_)
 
